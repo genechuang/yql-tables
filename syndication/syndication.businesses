@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<table xmlns="http://query.yahooapis.com/v1/schema/table.xsd">
+  <meta>
+    <author>Gene Chuang</author>
+    <documentationURL>http://onewiki.yellowpages.com/display/CP/SyndicationApiDocumentation</documentationURL>
+    <sampleQuery>select * from {table} where geo_location="660 N Brand Blvd, Glendale CA 91205"</sampleQuery>
+  </meta>
+  <bindings>
+   <select itemPath="search_results.businesses" produces="XML">
+      <urls>
+        <url env="all">http://syndication.yellowpages.com/v1/businesses</url>
+      </urls>
+      <paging model="page">
+        <start id="page" default="1" />
+        <pagesize id="per_page" max="500" />
+        <total default="10" />
+      </paging>
+      <inputs>
+        <key id="geo_location" type="xs:string" paramType="query" required="true" />
+        <key id="search_term" type="xs:string" paramType="query" />
+        <key id="api_key" type="xs:string" const="true" private="true" paramType="query" default="austin_rocks"/>
+        <key id="format" type="xs:string" paramType="query" default="xml"/>
+      </inputs>
+    </select>
+  </bindings>
+</table>
