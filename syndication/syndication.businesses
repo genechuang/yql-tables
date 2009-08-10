@@ -8,7 +8,7 @@
   <bindings>
    <select itemPath="search_results.businesses" produces="XML">
       <urls>
-        <url env="all">http://syndication.yellowpages.com/v1/businesses</url>
+        <url env="all">http://{host}/v1/businesses</url>
       </urls>
       <paging model="page">
         <start id="page" default="1" />
